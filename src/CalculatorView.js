@@ -2,6 +2,10 @@ var CalculatorView = function (calculator) {
     this.calculator = calculator;
 };
 
+
+var storage, operator;
+
+
 CalculatorView.prototype.init = function (c) {
     var wrapper = $(c);
     var display = wrapper.find('.display');
@@ -27,14 +31,24 @@ CalculatorView.prototype.init = function (c) {
     });
 
     wrapper.find('button.equal').click(jQuery.proxy(function (ev) {
+
         this.calculator[this.operator](Number(this.storage), Number(display.val()));
         var newValue = this.calculator.lastResult();
+
+        debugger;
+        var newValue = this.calculator[operator](Number(storage), Number(display.val()));
+
         display.val(newValue);
     }, this));
 
     wrapper.find('button.operator').click(jQuery.proxy(function (ev) {
+
         this.storage = display.val();
         this.operator = $(ev.currentTarget).attr('data-operator');
+
+        storage = display.val();
+        operator = $(ev.currentTarget).attr('data-operator');
+
         display.val('');
     }, this));
 };

@@ -5,16 +5,20 @@ describe('Calculator', function () {
         expect(actual).toBe(4);
     });
 
+
     it('stores the result in result', function () {
         var calculator = new Calculator();
         calculator.add(2, 2);
         expect(calculator.result).toBe(4);
     });
 
+
+
     it('can subtract 42 and 11', function () {
         var calculator = new Calculator();
         var actual = calculator.subtract(42, 11);
         expect(actual).toBe(31);
+
     });
 
     it('can subtract 42 and 11 and store the result', function () {
@@ -27,5 +31,6 @@ describe('Calculator', function () {
         var calculator = new Calculator();
         calculator.add(1, 2);
         expect(calculator.lastResult()).toBe(3);
+
     });
 });
