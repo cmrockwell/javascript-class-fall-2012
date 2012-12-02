@@ -114,4 +114,15 @@ describe('Calculator view', function () {
 
         expect(calculator.subtract).toHaveBeenCalledWith(3, 2);
     });
+    
+    it('can add 10 and 10', function () {
+        calculator.add.andReturn("20");        
+        container.find('#btn1').click();
+        container.find('#btn0').click();
+        container.find('#btnplus').click();
+        container.find('#btn1').click();
+        container.find('#btn0').click();
+        container.find('#btnequal').click();
+        expect(calculator.add).toHaveBeenCalledWith(10, 10);
+    });    
 });
